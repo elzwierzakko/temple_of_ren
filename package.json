@@ -1,0 +1,54 @@
+{
+  "name": "temple_of_ren",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot -d",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elzwierzakko/WAR_FER_W_999_ES6_React_Podstawy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elzwierzakko/WAR_FER_W_999_ES6_React_Podstawy/issues"
+  },
+  "homepage": "https://github.com/elzwierzakko/WAR_FER_W_999_ES6_React_Podstawy#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "autoprefixer": "^9.8.5",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-minify-dead-code-elimination": "^0.5.1",
+    "css-loader": "^3.6.0",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.4.1",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^9.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "dependencies": {
+    "compression-webpack-plugin": "^1.1.12",
+    "date-fns": "^2.15.0",
+    "infinite-react-carousel": "^1.2.11",
+    "react": "^16.11.0",
+    "react-back-to-top-button": "0.0.14",
+    "react-dom": "^16.11.0",
+    "react-responsive-carousel": "^3.2.9",
+    "react-scroll-up-button": "^1.6.4",
+    "react-slick": "^0.27.11",
+    "slick-carousel": "^1.8.1"
+  }
+}

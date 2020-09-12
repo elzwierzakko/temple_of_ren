@@ -1,0 +1,38 @@
+//page info
+
+.page_info_content {
+  display: flex;
+  box-sizing: border-box;
+  border: solid $articleColor 3px;
+  border-top: none;
+  background-color: $backgroundColor;
+  background-position: center;
+  text-align: justify;
+  width: 80%;
+  padding: 50px;
+  font-size: 18px;
+
+  h2,
+  p {
+    margin: 25px;
+  }
+  div {
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+  .send {
+    margin: 0 auto;
+    border: 2px solid $articleColor;
+    color: $articleColor;
+    background-color: $buttonColor;
+    padding: 15px;
+    margin: 10% 30% 0 30%;
+  }
+
+  .send:hover {
+    cursor: pointer;
+    color: $buttonColor;
+    background-color: $articleColor;
+    border: 2px solid $buttonColor;
+  }
+}
