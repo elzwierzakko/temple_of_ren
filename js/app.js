@@ -1,154 +1,64 @@
-import React, { Component, useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import News from "./elements/news";
-import Updates from "./elements/updates";
-import FooterElement from "./elements/footer"
-import ScrollUpButton from "react-scroll-up-button";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Main from "./main";
+import Games from "./games";
+import Movies from "./movies";  
+import Commics from "./commics";
+import Books from "./books";
 
-//app will for now recreate the HTML code 1:1. Please take note that the "top button" is not included.
 
-export default class Index extends React.Component {
-  render() {
-    return (
+function App() {
+  return (
+    <Router>
       <div>
-        <ScrollUpButton />
+        <nav>
+          <ul>
+            <li>
+              <Link to="/"></Link>
+            </li>
+            <li>
+              <Link to="/movies"></Link>
+            </li>
+            <li>
+              <Link to="/games"></Link>
+            </li>
+            <li>
+              <Link to="/commics"></Link>
+            </li>
+            <li>
+              <Link to="/movies"></Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+        <Route exact path="/">
+            <Main />
+          </Route>
+          <Route path="/movies">
+            <Movies />
+          </Route>
+          <Route path="/games">
+            <Games />
+          </Route>
+          <Route path="/commics">
+            <Commics />
+          </Route>
+          <Route path="/books">
+            <Books />
+          </Route>
+        </Switch>
       </div>
-    );
-  }
+    </Router>
+  );
 }
-const HeaderElement = () => {
-  return (
-    <header>
-      <div className="logo">
-        <img
-          src="/res/fologo.png"
-          alt="First Order Logo"
-          width="70"
-          height="70"
-        />
-        <h1>THE TEMPLE OF REN</h1>
-      </div>
-      {
-        //note that the below component is defined even lower. This is to recreate the HTML structure and is more clear to me.
-      }
-      <MenuInfoCaruselElement />
-    </header>
-  );
-};
-
-//below element will toggle menu page info visibility.
-
-const MenuInfoCaruselElement = () => {
-  const [infoState, infoChange] = useState(false);
-  const toggleInfo = () => {
-    if (infoState === true) {
-      infoChange(false);
-    } else {
-      infoChange(true);
-    }
-  };
-
-  return (
-    <>
-      <div className="top_menu">
-        <ul>
-          <a className="movies" href="movies.html">
-            MOVIES
-          </a>
-          <a className="games" href="games.html">
-            GAMES
-          </a>
-          <a className="commics" href="commics.html">
-            COMMICS
-          </a>
-          <a className="books" href="books.html">
-            BOOKS
-          </a>
-          <a className="page_info" onClick={toggleInfo}>
-            PAGE INFO
-          </a>
-        </ul>
-      </div>
-
-      {/* end of menu element */}
-
-      {/* below will display either the updates or the page info. Updates below.   */}
-
-      <div
-        className={`${infoState === false ? "updates_wrapper" : "no_display"}`}
-      >        
-      {/* below will import updates from updates.js file  */}
-
-          <Updates />
-
-      </div>
-
-      {/* <!-- page info below --> */}
-
-      <div
-        className={`${infoState === true ? "page_info_content" : "no_display"}`}
-      >
-        <h2>PAGE INFO</h2>
-        <p>
-          The Temple of Ren is a fan website dedicated to all fans of the
-          Original and the Sequel trilogies. Materials regarding the spinoffs,
-          TV shows, video games, books and commics will also be posted. Everyone
-          who is tired of the false hater narrative will feel right at home
-          here. References to other sites, quality YouTube, Reddit and social
-          media are done without any monetary or "like for like" agreements.
-        </p>
-
-        <div>
-          <p>
-            This site claims no official affiliation with The Walt Disney
-            company, Lucasfilm Ltd., Bad Robot or any of their affiliates. The
-            site also claims no rigths to "Star Wars" and related properties. If
-            you would like to contribute to the site or if you have feedback,
-            please contact the admin with the icon to the right.
-            <form
-              action="mailto:el.zwierzakko@gmail.com"
-              method="post"
-              encType="text/plain"
-            >
-              <input
-                type="submit"
-                className="send button"
-                value="el.zwierzakko at gmail.com"
-              ></input>
-            </form>
-          </p>
-        </div>
-      </div>
-    </>
-  );
-};
-
-let NewsElement = () => {
-  return (
-    <section>
-      <article className="news">
-        <h2>NEWS</h2>
-
-        {/* <!-- News section. Below are articles. Generated by app.js --> */}
-
-        <News></News>
-
-      </article>
-    </section>
-  );
-};
-
-// Note that not all Elements are listed in the App const. Some are integrated into elements above. Will see with time if this is a good aproach.
-
-const App = () => {
-  return (
-    <>
-      <ScrollUpButton />
-      <HeaderElement />
-      <NewsElement />
-      <FooterElement />
-    </>
-  );
-};
 
 ReactDOM.render(<App />, document.getElementById("app"));

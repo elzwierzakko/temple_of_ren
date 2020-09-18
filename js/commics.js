@@ -16,7 +16,7 @@ const HeaderElement = () => {
           width="70"
           height="70"
         />
-        <h1>MOVIES</h1>
+        <h1>COMMICS</h1>
       </div>
   );
 };
@@ -39,7 +39,7 @@ const MenuElement = () => {
   );
 };
 
-const Movies = () => {
+const Commics = () => {
   return (
     <>
       <ScrollUpButton />
@@ -52,4 +52,4 @@ const Movies = () => {
   );
 };
 
-export default Movies
+export default Commics

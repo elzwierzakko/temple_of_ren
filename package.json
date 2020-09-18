@@ -47,6 +47,7 @@
     "react-back-to-top-button": "0.0.14",
     "react-dom": "^16.11.0",
     "react-responsive-carousel": "^3.2.9",
+    "react-router-dom": "^5.2.0",
     "react-scroll-up-button": "^1.6.4",
     "react-slick": "^0.27.11",
     "slick-carousel": "^1.8.1"

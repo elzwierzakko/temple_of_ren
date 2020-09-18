@@ -11,6 +11,12 @@ body {
   background-image: url("/res/space.png");
 }
 
+main {
+  max-width: 1300px;
+  margin: 0 auto;
+  height: 100%;
+}
+
 h1,
 h2,
 h3 {
@@ -25,6 +31,26 @@ h3 {
 p {
   font-family: $paragraphFont;
   color: $articleColor;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 // below no display class is used for hiding and showing toggable elements
@@ -42,8 +68,10 @@ header {
   margin: 10px;
 
   .logo {
+    text-align: center;
     img {
       margin: 0 15px 0 15px;
+      max-height: 80px;
     }
     display: flex;
     flex-direction: row;
@@ -51,7 +79,7 @@ header {
     color: $articleColor;
     font-family: $titleFont;
     font-size: 30px;
-    margin: 15px;
+    margin: 15px 0 20px 0;
   }
 
   .top_menu {
@@ -62,8 +90,8 @@ header {
     font-size: 20px;
     flex-direction: row;
     width: 80%;
+    min-width: 730px;
     border: solid $articleColor 3px;
-    
 
     ul {
       width: 100%;
@@ -72,7 +100,8 @@ header {
       // border: solid $articleColor 2px;
 
       a,
-      .button {
+      .button,
+      Link {
         padding: 10px;
         text-decoration: none;
         color: $articleColor;
@@ -86,11 +115,10 @@ header {
         border-left: 3px solid $articleColor;
         background-color: $menuBgColor;
         padding-right: 7.5px;
-        padding-left: 8px;
+        padding-left: 7.5px;
       }
     }
   }
-
 }
 
 // Below are the styles for article section and main body
@@ -107,7 +135,6 @@ section {
     text-align: center;
     position: relative;
   }
-
 
   h2:before {
     content: "";
@@ -131,24 +158,49 @@ section {
 // Below is the styling for the news articles on the main page.
 
 .news_article {
+  overflow: auto;
   box-sizing: content-box;
-  background-color: $backgroundColor;
+  // background-color is set the same as: $backgroundColor; Used RGBA becouse only background is transparent.
+  background-color: rgba(43, 44, 46, 0.5);
   display: flex;
   flex-direction: column;
   color: $articleColor;
   font-family: $paragraphFont;
-  font-size: 20px;
+  font-size: 16px;
   width: 70%;
+  max-height: 500px;
   margin: 20px auto;
   padding: 15px;
   border: solid $articleColor 2px;
 
+  h3 {
+    border-top: solid $articleColor 2px;
+    padding: 10px;
+    background-color: rgba(43, 44, 46, 0.9);
+    text-align: center;
+  }
+  
+
+  .article_wrapper::before {
+    content: "";
+    display: block;
+    position: relative;
+    width: 0px;
+    border-bottom: 40px solid $articleColor;
+    border-right: 40px solid transparent;
+  }
+
   .article_wrapper {
     display: flex;
-
+    text-align: justify;
+  
     img {
       margin: 20px;
       border: solid $articleColor 2px;
+      max-width: 20%;
+      height: auto;
+      max-height: 200px;
+      width: auto;
     }
 
     p {
@@ -156,11 +208,11 @@ section {
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
-      margin: 50px;
+      margin: 15px 50px 30px 50px;
     }
 
     a {
-      margin: 20px;
+      margin: 50px 50px 15px 50px;
       width: 50%;
       border: solid $articleColor 2px;
       padding: 10px 40px 10px 40px;
@@ -193,16 +245,12 @@ footer {
   width: 100%;
   height: 100px;
   margin-top: 50px;
-  border-top: solid 2px $articleColor;
+  border: solid 2px $articleColor;
   background-color: $buttonColor;
-}
-
-// Below is the footer styling;
-
-footer {
   color: $articleColor;
   font-family: $paragraphFont;
-  font-size: 20px;
+  font-size: 14px;
   text-align: center;
-  padding: 30px;
+  padding: 20px;
 }
+
